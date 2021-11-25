@@ -1,18 +1,10 @@
 # Deep-dive conspect
 
-## Hook object
+## ReactInternalTypes
 
-```js
-export type Hook = {|
-  memoizedState: any,
-  baseState: any,
-  baseQueue: Update<any, any> | null,
-  queue: any,
-  next: Hook | null,
-|};
-```
+[packages/react-reconciler/src/ReactInternalTypes.js](https://github.com/facebook/react/blob/main/packages/react-reconciler/src/ReactInternalTypes.js)
 
-## Fiber object
+### [type] Fiber object
 
 ```js
 // A Fiber is work on a Component that needs to be done or was done. There can
@@ -147,7 +139,23 @@ export type Fiber = {|
 |};
 ```
 
-## Global variables
+## ReactFiberHooks
+
+[packages/react-reconciler/src/ReactFiberHooks.new.js](https://github.com/facebook/react/blob/main/packages/react-reconciler/src/ReactFiberHooks.new.js)
+
+### [type] Hook object
+
+```js
+export type Hook = {|
+  memoizedState: any,
+  baseState: any,
+  baseQueue: Update<any, any> | null,
+  queue: any,
+  next: Hook | null,
+|};
+```
+
+### [global variables]
 
 ```js
 // These are set right before calling the component.
@@ -197,7 +205,7 @@ let hookTypesUpdateIndexDev: number = -1;
 let ignorePreviousDependencies: boolean = false;
 ```
 
-## areHookInputsEqual
+### [function] areHookInputsEqual
 
 ```js
 function areHookInputsEqual(
@@ -248,7 +256,7 @@ function areHookInputsEqual(
 }
 ```
 
-## mountWorkInProgressHook
+### [function] mountWorkInProgressHook
 
 ```js
 function mountWorkInProgressHook(): Hook {
@@ -273,7 +281,7 @@ function mountWorkInProgressHook(): Hook {
 }
 ```
 
-## updateWorkInProgressHook
+### [function] updateWorkInProgressHook
 
 ```js
 function updateWorkInProgressHook(): Hook {
@@ -337,33 +345,3 @@ function updateWorkInProgressHook(): Hook {
   return workInProgressHook;
 }
 ```
-
-## mountCallback
-
-```js
-function mountCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
-  const hook = mountWorkInProgressHook();
-  const nextDeps = deps === undefined ? null : deps;
-  hook.memoizedState = [callback, nextDeps];
-  return callback;
-}
-```
-
-## updateCallback
-
-```js
-function updateCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
-  const hook = updateWorkInProgressHook();
-  const nextDeps = deps === undefined ? null : deps;
-  const prevState = hook.memoizedState;
-  if (prevState !== null) {
-    if (nextDeps !== null) {
-      const prevDeps: Array<mixed> | null = prevState[1];
-      if (areHookInputsEqual(nextDeps, prevDeps)) {
-        return prevState[0];
-      }
-    }
-  }
-  hook.memoizedState = [callback, nextDeps];
-  return callback;
-}
