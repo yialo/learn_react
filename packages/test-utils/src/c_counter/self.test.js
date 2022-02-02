@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render } from 'react-dom';
+import { render, unmountComponentAtNode } from 'react-dom';
 import {
   act,
   isElement,
@@ -19,6 +19,7 @@ describe('Counter', () => {
   });
 
   afterEach(() => {
+    unmountComponentAtNode($container);
     document.body.removeChild($container);
     $container = null;
   });
