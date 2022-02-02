@@ -34,6 +34,7 @@ describe('User', () => {
       render(<User id={234} />, $container);
     });
 
+    expect(fakeFetch).toHaveBeenCalledTimes(1);
     expect($container.querySelector('summary').textContent).toBe('Bob');
     expect($container.querySelector('strong').textContent).toBe('34');
     expect($container.textContent).toContain('Orenburg');
