@@ -4,13 +4,13 @@ import { Link } from './self';
 
 describe('Link', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Link href="https://github.com/">GitHub</Link>).toJSON();
+    const tree = renderer.create(<Link href="https://www.google.com/">Google</Link>).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   it('renders an anchor when no href is passed', () => {
-    const tree = renderer.create(<Link>GitHub</Link>).toJSON();
+    const tree = renderer.create(<Link>Bob</Link>).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

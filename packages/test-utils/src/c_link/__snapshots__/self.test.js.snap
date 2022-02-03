@@ -7,18 +7,18 @@ exports[`Link renders an anchor when no href is passed 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
-  GitHub
+  Bob
 </a>
 `;
 
 exports[`Link renders correctly 1`] = `
 <a
   className="NORMAL"
-  href="https://github.com/"
+  href="https://www.google.com/"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
-  GitHub
+  Google
 </a>
 `;
 
