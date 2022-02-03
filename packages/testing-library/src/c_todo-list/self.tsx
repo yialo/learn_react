@@ -60,45 +60,48 @@ export const TodoList = () => {
 
       {isLoaded &&
         (state.todos.length > 0 ? (
-          <ul>
-            {state.todos.map(({ id, isComplete, title }) => {
-              const handleClick = () => {
-                setState((prev) => {
-                  const targetTodo = prev.todos.find((todo) => todo.id === id);
+          <>
+            <p>My todos:</p>
+            <ul>
+              {state.todos.map(({ id, isComplete, title }) => {
+                const handleClick = () => {
+                  setState((prev) => {
+                    const targetTodo = prev.todos.find((todo) => todo.id === id);
 
-                  if (!targetTodo) {
-                    return prev;
-                  }
-
-                  const newTodos = prev.todos.map((todo) => {
-                    if (todo !== targetTodo) {
-                      return todo;
+                    if (!targetTodo) {
+                      return prev;
                     }
 
+                    const newTodos = prev.todos.map((todo) => {
+                      if (todo !== targetTodo) {
+                        return todo;
+                      }
+
+                      return {
+                        ...todo,
+                        isComplete: !todo.isComplete,
+                      };
+                    });
+
                     return {
-                      ...todo,
-                      isComplete: !todo.isComplete,
+                      ...prev,
+                      todos: newTodos,
                     };
                   });
+                };
 
-                  return {
-                    ...prev,
-                    todos: newTodos,
-                  };
-                });
-              };
-
-              return (
-                <li key={id}>
-                  <div>{title}</div>
-                  <div>{`Completed: ${isComplete}`}</div>
-                  <button type="button" aria-pressed={isComplete} onClick={handleClick}>
-                    Check
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+                return (
+                  <li key={id}>
+                    <div>{title}</div>
+                    <div>{`Completed: ${isComplete}`}</div>
+                    <button type="button" aria-pressed={isComplete} onClick={handleClick}>
+                      Check
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </>
         ) : (
           <div>No todos</div>
         ))}
