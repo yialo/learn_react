@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders an anchor when no href is passed 1`] = `
+<a
+  className="NORMAL"
+  href="#"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  GitHub
+</a>
+`;
+
+exports[`Link renders correctly 1`] = `
+<a
+  className="NORMAL"
+  href="https://github.com/"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  GitHub
+</a>
+`;
+
+exports[`Link updates CSS class on hover 1`] = `
+<a
+  className="NORMAL"
+  href="https://github.com/"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  GitHub
+</a>
+`;
+
+exports[`Link updates CSS class on hover 2`] = `
+<a
+  className="HOVERED"
+  href="https://github.com/"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  GitHub
+</a>
+`;
+
+exports[`Link updates CSS class on hover 3`] = `
+<a
+  className="NORMAL"
+  href="https://github.com/"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  GitHub
+</a>
+`;
