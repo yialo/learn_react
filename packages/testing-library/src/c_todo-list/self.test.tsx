@@ -16,7 +16,7 @@ test('should load todo items and allow to toggle their completion', async () => 
 
   // toggles state of todo item on button click
   const firstItemStateDiv = screen.getAllByText('Completed: false')[0];
-  const firstItemButton = screen.getAllByText('Check')[0];
+  const firstItemButton = screen.getAllByRole('button')[0];
   fireEvent.click(firstItemButton);
   expect(firstItemStateDiv).toHaveTextContent('Completed: true');
 });
