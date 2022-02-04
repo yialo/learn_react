@@ -16,6 +16,7 @@ describe('TimerCard', () => {
     unmountComponentAtNode($container);
     $container.remove();
     $container = null;
+    jest.runOnlyPendingTimers();
     jest.useRealTimers();
   });
 
