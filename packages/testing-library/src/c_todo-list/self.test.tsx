@@ -9,7 +9,7 @@ test('should load todo items and allow to toggle their completion', async () => 
   expect(screen.getByText('Loading...')).toBeVisible();
 
   // loads todo list, then shows it and hide preloader
-  await waitFor(() => expect(screen.queryByText('Loading...')).toBe(null));
+  await waitFor(() => expect(screen.queryByText('Loading...')).not.toBeInTheDocument());
   expect(screen.getByText('My todos:')).toBeVisible();
 
   // toggles state of todo item on button click
