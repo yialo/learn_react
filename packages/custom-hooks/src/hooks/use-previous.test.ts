@@ -9,20 +9,20 @@ test('should return undefined on 1st render', () => {
 
 test('should use previous with primitive', () => {
   // 1st render
-  const { rerender, result } = renderHook(({ value }) => usePrevious(value), {
-    initialProps: { value: 1 },
+  const { rerender, result } = renderHook((value) => usePrevious(value), {
+    initialProps: 1,
   });
 
   // 2nd render, returns value from 1st render
-  rerender({ value: 0 });
+  rerender(0);
   expect(result.current).toBe(1);
 
   // 3rd render, returns value from 2st render
-  rerender({ value: 0 });
+  rerender(0);
   expect(result.current).toBe(0);
 
   // 4th render, returns value from 3rd render
-  rerender({ value: 2 });
+  rerender(2);
   expect(result.current).toBe(0);
 });
 
