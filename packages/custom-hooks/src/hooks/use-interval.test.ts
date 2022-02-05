@@ -14,7 +14,7 @@ afterEach(() => {
 test('should use interval', () => {
   const callback = jest.fn();
   const delay = 100;
-  const { result } = renderHook(() => useInterval(callback, delay));
+  const { result, unmount } = renderHook(() => useInterval(callback, delay));
 
   expect(result.current).toBeUndefined();
 
@@ -23,6 +23,14 @@ test('should use interval', () => {
   });
 
   expect(callback).toBeCalledTimes(0);
+
+  act(() => {
+    jest.advanceTimersByTime(100);
+  });
+
+  expect(callback).toBeCalledTimes(1);
+
+  unmount();
 
   act(() => {
     jest.advanceTimersByTime(100);
