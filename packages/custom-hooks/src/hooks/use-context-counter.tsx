@@ -18,9 +18,15 @@ export const useCounter = (initialCount = 0) => {
     setCount((x) => x + step);
   }, [step]);
 
+  const incrementAsync = React.useCallback(() => {
+    setTimeout(() => {
+      setCount((x) => x + step);
+    }, 100);
+  }, [step]);
+
   const reset = React.useCallback(() => {
     setCount(initialCount);
   }, [initialCount]);
 
-  return { count, increment, reset };
+  return { count, increment, incrementAsync, reset };
 };
