@@ -1,5 +1,5 @@
 import './index.css';
 
-import { initReact } from './init-react';
+import { main } from './vanilla-todo-app';
 
-initReact();
+main();
