@@ -4,4 +4,4 @@ import './index.css';
 
 // initReactApp();
 
-import './learn-core/store-strikes';
+import './learn-core/store-serialize';
