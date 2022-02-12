@@ -4,4 +4,4 @@ import './index.css';
 
 // initReactApp();
 
-import './learn-core/store-todo';
+import './learn-core/store-strikes';
