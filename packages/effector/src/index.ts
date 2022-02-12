@@ -1,5 +1,7 @@
 import './index.css';
 
-import { initReactApp } from './react-todo-app';
+// import { initReactApp } from './react-todo-app';
 
-initReactApp();
+// initReactApp();
+
+import './learn-core/store-todo';
