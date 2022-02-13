@@ -4,4 +4,4 @@ import './index.css';
 
 // initReactApp();
 
-import './learn-core/store-serialize';
+import './learn-core/event-counter';
