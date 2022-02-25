@@ -4,4 +4,4 @@ import './index.css';
 
 // initReactApp();
 
-import './learn-core/event-fullname';
+import './learn-core/effect-simple';
