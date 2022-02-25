@@ -4,4 +4,4 @@ import './index.css';
 
 // initReactApp();
 
-import './learn-core/effect-store-update';
+import './learn-core/effect-watch-status';
