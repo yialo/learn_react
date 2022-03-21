@@ -1,8 +1,16 @@
-class App extends React.Component {
-  render() {
-    const el = React.createElement('div', null, 'Hello world!');
+'use strict';
 
-    console.log('---el', el);
+const Title = (props) => {
+  console.log('Title props', props);
+  return React.createElement('h1', null, props.name);
+};
+
+class App extends React.Component {
+  state = { title: 'Hello world!' };
+
+  render() {
+    const el = React.createElement(Title, { title: this.state.title });
+    console.log('App el', el);
 
     return el;
   }
