@@ -12,7 +12,7 @@ function filterProducts(filterTerm) {
   return dummyProducts.filter((product) => product.includes(filterTerm));
 }
 
-function App() {
+export function AppWithTransition() {
   const [isPending, startTransition] = useTransition();
 
   const [query, setQuery] = useState('');
@@ -37,4 +37,20 @@ function App() {
   );
 }
 
-export default App;
+export function AppWithDeferredValue() {
+  const [query, setQuery] = useState('');
+
+  const filteredProducts = useDeferredValue(filterProducts(query));
+
+  function handleInputChange(event) {
+    const { value } = event.target;
+    setQuery(value);
+  }
+
+  return (
+    <div id="app">
+      <input type="text" value={query} onChange={handleInputChange} />
+      <ProductList products={filteredProducts} />
+    </div>
+  );
+}
