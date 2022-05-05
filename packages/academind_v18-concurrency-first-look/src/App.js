@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useTransition, useDeferredValue } from 'react';
 
 import { generateProducts } from './data';
 import ProductList from './components/ProductList';
@@ -13,18 +13,26 @@ function filterProducts(filterTerm) {
 }
 
 function App() {
-  const [filterTerm, setFilterTerm] = useState('');
+  const [isPending, startTransition] = useTransition();
+
+  const [query, setQuery] = useState('');
+  const [filterTerm, setFilterTerm] = useState(query);
 
   const filteredProducts = filterProducts(filterTerm);
 
-  function updateFilterHandler(event) {
-    setFilterTerm(event.target.value);
+  function handleInputChange(event) {
+    const { value } = event.target;
+    setQuery(value);
+    startTransition(() => {
+      setFilterTerm(value);
+    });
   }
 
   return (
     <div id="app">
-      <input type="text" value={filterTerm} onChange={updateFilterHandler} />
+      <input type="text" value={query} onChange={handleInputChange} />
       <ProductList products={filteredProducts} />
+      {isPending && <div className="loader">Updating...</div>}
     </div>
   );
 }

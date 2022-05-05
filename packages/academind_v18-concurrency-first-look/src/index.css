@@ -44,3 +44,12 @@ li {
   border-radius: 6px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
+
+.loader {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+  background-color: white;
+}
