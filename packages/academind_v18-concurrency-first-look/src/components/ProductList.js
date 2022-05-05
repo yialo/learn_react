@@ -2,7 +2,7 @@ function ProductList({ products }) {
   return (
     <ul>
       {products.map((product) => (
-        <li>{product}</li>
+        <li key={product}>{product}</li>
       ))}
     </ul>
   );

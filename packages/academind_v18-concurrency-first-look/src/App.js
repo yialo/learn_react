@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div id="app">
-      <input type="text" onChange={updateFilterHandler} />
+      <input type="text" value={filterTerm} onChange={updateFilterHandler} />
       <ProductList products={filteredProducts} />
     </div>
   );
