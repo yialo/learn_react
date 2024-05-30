@@ -1,7 +1,7 @@
-import { clsx } from 'clsx/lite'; // Joins CSS class names
+import { clsx } from 'clsx/lite';
 
 interface MyButtonProps extends React.ComponentPropsWithoutRef<'button'> {
-  className?: string; // Redundant but kept for explicitness
+  className?: string;
 }
 
 export function MyButton({ className, ...props }: MyButtonProps) {
