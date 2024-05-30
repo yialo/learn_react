@@ -1,3 +1,9 @@
+import { MyButton } from './button';
+
 export function App() {
-  return null;
+  return (
+    <div>
+      <MyButton />
+    </div>
+  );
 }
