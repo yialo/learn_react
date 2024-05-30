@@ -1,4 +1,11 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html {
+  box-sizing: border-box;
   color-scheme: light dark;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -32,6 +39,8 @@ body {
   font-size: 1.25rem;
   line-height: 1;
   text-wrap: nowrap;
+  text-decoration-line: none;
+  color: black;
   background-color: var(--bg-color);
   cursor: pointer;
 
