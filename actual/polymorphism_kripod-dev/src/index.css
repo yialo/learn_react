@@ -16,3 +16,9 @@ body {
   color: black;
   background-color: white;
 }
+
+.wrapper {
+  display: flex;
+  column-gap: 1rem;
+  padding: 1rem;
+}
